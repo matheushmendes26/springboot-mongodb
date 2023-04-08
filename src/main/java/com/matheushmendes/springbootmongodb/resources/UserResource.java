@@ -43,6 +43,12 @@ public class UserResource {
         return ResponseEntity.created(uri).build();
     }
 
+    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)//to set endpoint way for the rout "/users"
+    public ResponseEntity<Void> deleteByd(@PathVariable String id){
+        userService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 
 
 }
