@@ -1,5 +1,6 @@
 package com.matheushmendes.springbootmongodb.resources;
 
+import com.matheushmendes.springbootmongodb.domain.Post;
 import com.matheushmendes.springbootmongodb.domain.User;
 import com.matheushmendes.springbootmongodb.dto.UserDTO;
 import com.matheushmendes.springbootmongodb.services.UserService;
@@ -57,6 +58,11 @@ public class UserResource {
         return ResponseEntity.noContent().build();
     }
 
+    @RequestMapping(value="/{id}/posts", method = RequestMethod.GET)//to set endpoint way for the rout "/users"
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User obj = userService.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
+    }
 
 
 }
