@@ -22,7 +22,7 @@ public class PostResource {
 
     @Autowired
     private PostService postService;
-    
+
     @RequestMapping(value="/{id}", method = RequestMethod.GET)//to set endpoint way for the rout "/users"
     public ResponseEntity<Post> findById(@PathVariable String id){
         Post post = postService.findById(id);

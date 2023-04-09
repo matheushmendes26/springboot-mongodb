@@ -1,14 +1,18 @@
 package com.matheushmendes.springbootmongodb.domain;
 
 import com.matheushmendes.springbootmongodb.dto.AuthorDTO;
+import com.matheushmendes.springbootmongodb.dto.CommentDTO;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +29,7 @@ public class Post implements Serializable {
     private String body;
 
     private AuthorDTO author;
+    private List<CommentDTO> comments = new ArrayList<>();
 
     public Post(){}
 
